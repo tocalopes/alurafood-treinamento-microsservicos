@@ -38,7 +38,7 @@ public class PagamentoController {
         return ResponseEntity.created(address).body(pagamento);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<PagamentoDto> create(@PathVariable @NotNull Long id, @RequestBody @Valid PagamentoDto dto, UriComponentsBuilder uriBuilder){
         PagamentoDto pagamento = service.update(id,dto);
         URI address = uriBuilder.path("/pagamento/{id}").buildAndExpand(pagamento.getId()).toUri();
