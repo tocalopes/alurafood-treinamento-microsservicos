@@ -1,6 +1,6 @@
-package model;
+package br.com.alurafood.pagamentos.model;
 
-import enums.Status;
+import br.com.alurafood.pagamentos.enums.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

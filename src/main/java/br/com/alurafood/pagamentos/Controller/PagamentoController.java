@@ -1,6 +1,7 @@
-package Controller;
+package br.com.alurafood.pagamentos.Controller;
 
-import dto.PagamentoDto;
+import br.com.alurafood.pagamentos.service.PagamentoService;
+import br.com.alurafood.pagamentos.dto.PagamentoDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import service.PagamentoService;
 
 import java.net.URI;
 
@@ -26,7 +26,7 @@ public class PagamentoController {
         return service.listAll(pageable);
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public ResponseEntity<PagamentoDto> findById(@PathVariable @NotNull Long id){
         return ResponseEntity.ok(service.findById(id));
     }
@@ -45,8 +45,8 @@ public class PagamentoController {
         return ResponseEntity.created(address).body(pagamento);
     }
 
-    @DeleteMapping
-    public ResponseEntity<Void> delete(@PathVariable @NotNull  Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<PagamentoDto> delete(@PathVariable @NotNull Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }

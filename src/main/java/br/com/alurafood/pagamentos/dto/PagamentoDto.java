@@ -1,14 +1,18 @@
-package dto;
+package br.com.alurafood.pagamentos.dto;
 
-import enums.Status;
+import br.com.alurafood.pagamentos.enums.Status;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import model.Pagamento;
+import br.com.alurafood.pagamentos.model.Pagamento;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PagamentoDto {
     private Long id;
     private BigDecimal valor;
