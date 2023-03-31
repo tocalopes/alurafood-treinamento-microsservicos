@@ -8,6 +8,8 @@ import lombok.Setter;
 import br.com.alurafood.pagamentos.model.Pagamento;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,6 +25,8 @@ public class PagamentoDto {
     private Status status;
     private Long formaDePagamentoId;
     private Long pedidoId;
+
+    private List<ItemDto> itens = new ArrayList<>();
 
     PagamentoDto(Pagamento pagamento){
 

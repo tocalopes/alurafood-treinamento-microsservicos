@@ -34,6 +34,7 @@ public class PagamentoService {
     public PagamentoDto findById(Long id){
         PagamentoDto pagamento= repository.findById(id).map(p -> modelMapper.map(p,PagamentoDto.class))
                 .orElseThrow(EntityNotFoundException::new);
+        pagamento.setItens(pedidosClient.getItensPedido(pagamento.getPedidoId()).getBody());
         return pagamento;
     }
 
